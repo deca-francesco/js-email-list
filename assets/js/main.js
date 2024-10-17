@@ -33,6 +33,7 @@ generate10randomEmail();
 
 // contatore delle pressioni del bottone
 let counter = 1;
+
 // click del bottone
 btnGenerateEl.addEventListener("click", function() {
     // cancello le email già presenti
@@ -41,3 +42,12 @@ btnGenerateEl.addEventListener("click", function() {
     h2El.innerText = `Hai generato altre email ${counter} volte`
     counter++
 });
+
+
+
+// bottone restart
+const btnresetEl = document.getElementById("restart");
+
+btnresetEl.addEventListener("click", () => {
+    document.location.reload();
+})
