@@ -5,3 +5,21 @@ Bonus
 Abbellire con CSS o Bootstrap
 Inserire un bottone che al click fetchi altre 10 mail (sostituendo le altre)
 */
+
+// preparazione variabili
+const emailListEl = document.getElementById("emailList");
+const btnGenerateEl = document.getElementById("btnGenerate");
+const h2El = document.querySelector(".row > .col:first-child > h2");
+
+
+// ciclo for per generare 10 email
+for (let i = 0; i < 10; i++) {
+    axios.get("https://flynn.boolean.careers/exercises/api/random/mail")
+    .then(response => {
+        // console.log(response.data.response);
+        const emailLiEl = document.createElement("li");
+        emailLiEl.innerText = `--- ${response.data.response}`;
+        console.log(emailLiEl);
+        emailListEl.appendChild(emailLiEl);
+    }).catch(err => console.error(err))
+}
