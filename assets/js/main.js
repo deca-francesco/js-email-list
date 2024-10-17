@@ -22,7 +22,8 @@ function generate10randomEmail() {
             emailLiEl.innerText = `--- ${response.data.response}`;
             console.log(emailLiEl);
             emailListEl.appendChild(emailLiEl);
-        }).catch(err => console.error(err))
+        })
+        .catch(err => console.error(err))
     }
 }
 
@@ -30,10 +31,13 @@ function generate10randomEmail() {
 generate10randomEmail();
 
 
-
+// contatore delle pressioni del bottone
+let counter = 1;
 // click del bottone
 btnGenerateEl.addEventListener("click", function() {
     // cancello le email già presenti
     emailListEl.innerText = "";
     generate10randomEmail();
-})
+    h2El.innerText = `Hai generato altre email ${counter} volte`
+    counter++
+});
