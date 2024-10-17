@@ -16,14 +16,14 @@ const h2El = document.querySelector(".row > .col:first-child > h2");
 function generate10randomEmail() {
     for (let i = 0; i < 10; i++) {
         axios.get("https://flynn.boolean.careers/exercises/api/random/mail")
-        .then(response => {
-            // console.log(response.data.response);
-            const emailLiEl = document.createElement("li");
-            emailLiEl.innerText = `--- ${response.data.response}`;
-            console.log(emailLiEl);
-            emailListEl.appendChild(emailLiEl);
-        })
-        .catch(err => console.error(err))
+            .then(response => {
+                // console.log(response.data.response);
+                const emailLiEl = document.createElement("li");
+                emailLiEl.innerText = `--- ${response.data.response}`;
+                console.log(emailLiEl);
+                emailListEl.appendChild(emailLiEl);
+            })
+            .catch(err => console.error(err))
     }
 }
 
@@ -35,12 +35,12 @@ generate10randomEmail();
 let counter = 1;
 
 // click del bottone
-btnGenerateEl.addEventListener("click", function() {
+btnGenerateEl.addEventListener("click", function () {
     // cancello le email già presenti
     emailListEl.innerText = "";
     generate10randomEmail();
-    h2El.innerText = `Hai generato altre email ${counter} volte`
-    counter++
+    h2El.innerText = `Hai generato altre email ${counter} volte`;
+    counter++;
 });
 
 
@@ -50,4 +50,4 @@ const btnresetEl = document.getElementById("restart");
 
 btnresetEl.addEventListener("click", () => {
     document.location.reload();
-})
+});
